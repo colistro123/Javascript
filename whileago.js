@@ -370,42 +370,6 @@ function loadvideo(evt, from, videoid, closeoption)
     //$('#friendrequests').load('loadfrequests.php?username='+username).fadeIn("slow"); 
 }
 
-function loadimage(evt, from, imgid, closeoption) {
-	evt.preventDefault();
-	if(from == 1) {
-	toggleui();
-	$('.whitebox').css({'height':'auto','width':'auto','background-color':'rgba(0,0,0,0)'});
-	$('.mainuibox').css({'height':'auto','width':'auto','background-color':'rgba(0,0,0,0)'});
-	//$('#mainuibox').load('includes/loadimage.php?from=' + from + '&imgid=' + imgid + '&optionclose='+ closeoption);
-		$('#mainuibox').load('includes/loadimage.php?from=' + from + '&imgid=' + imgid + '&optionclose='+ closeoption, function() {
-			$('.loadedimageshow').each(function() {
-				var maxWidth = 720; // Max width for the image
-				var maxHeight = 480;    // Max height for the image
-				var ratio = 0;  // Used for aspect ratio
-				var width = $(this).width();    // Current image width
-				var height = $(this).height();  // Current image height
-
-				// Check if the current width is larger than the max
-				if(width > maxWidth) {
-					ratio = maxWidth / width;   // get ratio for scaling image
-					$(this).css("width", maxWidth); // Set new width
-					$(this).css("height", height * ratio);  // Scale height based on ratio
-					height = height * ratio;    // Reset height to match scaled image
-				}
-				var width = $(this).width();    // Current image width
-				var height = $(this).height();  // Current image height
-				// Check if current height is larger than max
-				if(height > maxHeight) {
-					ratio = maxHeight / height; // get ratio for scaling image
-					$(this).css("height", maxHeight);   // Set new height
-					$(this).css("width", width * ratio);    // Scale width based on ratio
-					width = width * ratio;    // Reset width to match scaled image
-				}
-			});
-		});
-	}
-}
-
 function closevideo(evt)
 {
 	evt.preventDefault();
@@ -415,6 +379,7 @@ function closevideo(evt)
 </script>
 
 <script type="text/javascript">
+//Auto Resize
 $(document).ready(function() {
 	$('#commentboxui').live('keyup keypress', function() {
       	$(this).height('');
@@ -436,13 +401,4 @@ $(document).ready(function() {
 		$("#mainuibox").scrollTop($("#replytobox").height()+100);
 	});
 });
-</script>
-
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=511650732196347";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
 </script>
