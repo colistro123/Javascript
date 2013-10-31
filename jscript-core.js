@@ -1,3 +1,4 @@
+/* It doesn't indent the code */
 $(document).ready(function(){
 	Cufon.now();
 	Cufon.replace('body');
@@ -32,7 +33,7 @@ function toggleui() {
 		$(".closebuibtn").remove();
 		$("<div></div>", { "class":"closebuibtn", "id":"closebuibtn" }).appendTo(".blackui");
 		$("<div></div>", { "class":"whitebox", "id":"whitebox" }).appendTo(".blackui");
-    	$("<div></div>", { "class":"mainuibox", "id":"mainuibox" }).appendTo(".whitebox");
+    		$("<div></div>", { "class":"mainuibox", "id":"mainuibox" }).appendTo(".whitebox");
 		$("#closebuibtn").css({"height":"auto","min-width":"5px","float":"right","margin":"60px","color":"#FFFFFF"});
 		$("#closebuibtn").html("<a href='javascript:void(0);' onclick='toggleui();'><img src='images/dialog_close.png'></a>");
 		$("#whitebox").css({"height":"300px","width":"800px","margin-left":"auto","margin-right":"auto","margin-top":"150px"});
